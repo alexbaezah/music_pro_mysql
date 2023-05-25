@@ -11,5 +11,9 @@ db = SQLAlchemy(app)
 
 # Importar los controladores después de inicializar db para evitar la importación circular
 from controllers.instrumento import instrumentos_blueprint
+from controllers.pago import pagos_blueprint
+from api.api import webpay_blueprint
 
 app.register_blueprint(instrumentos_blueprint)
+app.register_blueprint(pagos_blueprint)
+app.register_blueprint(webpay_blueprint)
