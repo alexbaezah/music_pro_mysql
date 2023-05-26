@@ -16,4 +16,4 @@ from api.api import webpay_blueprint
 
 app.register_blueprint(instrumentos_blueprint)
 app.register_blueprint(pagos_blueprint)
-app.register_blueprint(webpay_blueprint)
+app.register_blueprint(webpay_blueprint, url_prefix='/webpay')
