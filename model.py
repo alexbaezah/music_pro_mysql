@@ -55,6 +55,7 @@ class Instrumento(db.Model):
     PRECIO_INSTR = db.Column(db.Integer, nullable=False)
     STOCK_INSTR = db.Column(db.Integer, nullable=False)
     ID_SUBTIPO = db.Column(db.Integer, db.ForeignKey('SUBTIPO.ID_SUBTIPO'))
+    FOTO = db.Column(db.String(150))
 
     subtipo = db.relationship('Subtipo', backref='instrumentos')
 
@@ -91,4 +92,5 @@ class Pago(db.Model):
     MONTO_TOTAL_PAGO = db.Column(db.Numeric(10, 2))
     FECHA_PAGO = db.Column(db.DateTime, default=datetime.utcnow)
     ID_ESTADO_PAGO = db.Column(db.Integer, db.ForeignKey('ESTADO_PAGO.ID_ESTADO_PAGO'), default=1)
+    
     

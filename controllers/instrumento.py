@@ -16,7 +16,8 @@ def get_instrumentos():
             'descripcion': instrumento.DESCRIPCION_INSTR,
             'precio': instrumento.PRECIO_INSTR,
             'stock': instrumento.STOCK_INSTR,
-            'id_subtipo': instrumento.ID_SUBTIPO
+            'id_subtipo': instrumento.ID_SUBTIPO,
+            'foto': instrumento.FOTO
         }
         instrumentos_list.append(instrumento_dict)
 
