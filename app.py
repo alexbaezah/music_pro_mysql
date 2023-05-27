@@ -19,12 +19,14 @@ from controllers.pago import pagos_blueprint
 from api.api import webpay_blueprint
 from controllers.accesorio import accesorios_blueprint
 from index import index_blueprint
+from controllers.region import regiones_blueprint
 
 app.register_blueprint(instrumentos_blueprint)
 app.register_blueprint(pagos_blueprint)
 app.register_blueprint(accesorios_blueprint)
 app.register_blueprint(webpay_blueprint, url_prefix='/webpay')
 app.register_blueprint(index_blueprint)
+app.register_blueprint(regiones_blueprint)
 
 """@app.route('/')
 def index():

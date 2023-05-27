@@ -2,20 +2,20 @@ from app import db
 from datetime import datetime
 from sqlalchemy import DateTime, Numeric
 
-class REGION(db.Model):
+class Region(db.Model):
     __tablename__ = 'REGION'
     ID_REGION = db.Column(db.Integer, primary_key=True)
     NOMBRE_REG = db.Column(db.String(80), nullable=False)
     
 
-class CIUDAD(db.Model):
+class Ciudad(db.Model):
     __tablename__ = 'CIUDAD'
     ID_CIUDAD = db.Column(db.Integer, primary_key=True)
     NOM_CIUD = db.Column(db.String(80), nullable=False)
     ID_REGION = db.Column(db.Integer, db.ForeignKey('REGION.ID_REGION'))
     
 
-class COMUNA(db.Model):
+class Comuna(db.Model):
     __tablename__ = 'COMUNA'
     ID_COM = db.Column(db.Integer, primary_key=True)
     NOM_COM = db.Column(db.String(100), nullable=False)
@@ -23,7 +23,7 @@ class COMUNA(db.Model):
     ID_REGION = db.Column(db.Integer, db.ForeignKey('REGION.ID_REGION'))
     
 
-class ROL(db.Model):
+class Rol(db.Model):
     __tablename__ = 'ROL'
     ID_ROL = db.Column(db.Integer, primary_key=True)
     NOMBRE_ROL = db.Column(db.String(50))
@@ -97,7 +97,7 @@ class Estado_pago(db.Model):
     DESCRIPCION_ESTADO_PAGO = db.Column(db.String(20), nullable=False, default='Pendiente')
     
 class Pago(db.Model):
-    __tablename__ = 'Pago'
+    __tablename__ = 'PAGO'
     ID_PAGO = db.Column(db.Integer, primary_key=True)
     ID_CARRITO = db.Column(db.Integer, db.ForeignKey('CARRITO.ID_CARRITO'))
     MONTO_TOTAL_PAGO = db.Column(db.Numeric(10, 2))
