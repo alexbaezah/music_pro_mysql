@@ -2,6 +2,7 @@ $(document).ready(function() {
     // Cargar opciones de región al cargar la página
     cargarRegiones();
     cargarComunas();
+    cargarCiudades() 
     
     $('#registro-form').submit(function(event) {
       event.preventDefault();
@@ -83,6 +84,27 @@ function cargarComunas() {
         opciones += '<option value="' + comuna.ID_COM + '">' + comuna.NOM_COM + '</option>';
       });
       $('#inputComuna').html(opciones);
+    },
+    error: function(error) {
+      console.log('Error:', error);
+    }
+  });
+}
+
+function cargarCiudades() {
+  console.log('Ejecutando cargarCiudades'); // Agregar este console.log
+  
+  $.ajax({
+    url: 'http://127.0.0.1:5000/ciudades',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      // Generar las opciones de comuna
+      var opciones = '';
+      data.forEach(function(ciudad) {
+        opciones += '<option value="' + ciudad.ID_CIUDAD + '">' + ciudad.NOM_CIUD + '</option>';
+      });
+      $('#inputCiudad').html(opciones);
     },
     error: function(error) {
       console.log('Error:', error);

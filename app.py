@@ -21,6 +21,9 @@ from controllers.accesorio import accesorios_blueprint
 from index import index_blueprint
 from controllers.region import regiones_blueprint
 from controllers.comuna import comunas_blueprint
+from controllers.ciudad import ciudades_blueprint
+
+
 
 app.register_blueprint(instrumentos_blueprint)
 app.register_blueprint(pagos_blueprint)
@@ -29,6 +32,7 @@ app.register_blueprint(webpay_blueprint, url_prefix='/webpay')
 app.register_blueprint(index_blueprint)
 app.register_blueprint(regiones_blueprint)
 app.register_blueprint(comunas_blueprint)
+app.register_blueprint(ciudades_blueprint)
 
 """@app.route('/')
 def index():
