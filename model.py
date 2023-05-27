@@ -31,7 +31,7 @@ class ROL(db.Model):
 
 
 
-class CLIENTE(db.Model):
+class Cliente(db.Model):
     __tablename__ = 'CLIENTE'
     RUT_CLI = db.Column(db.String(8), primary_key=True)
     DV_CLI = db.Column(db.String(1), nullable=False)
@@ -58,6 +58,17 @@ class Instrumento(db.Model):
     FOTO = db.Column(db.String(150))
 
     subtipo = db.relationship('Subtipo', backref='instrumentos')
+
+class Accesorio(db.Model):
+    __tablename__ = 'ACCESORIO'
+    ID_ACCESORIO = db.Column(db.Integer, primary_key=True)
+    NOMBRE = db.Column(db.String(80), nullable=False)
+    DESCRIPCION = db.Column(db.String(80), nullable = False)
+    PRECIO_ACCE = db.Column(db.Integer, nullable = False)
+    STOCK_ACCE= db.Column(db.Integer, nullable= False)
+    ID_MARCA = db.Column(db.Integer, db.ForeignKey('MARCA.ID_MARCA'))
+    FOTO = db.Column(db.String(150))
+    
 
 class Subtipo(db.Model):
     __tablename__ = 'SUBTIPO'
@@ -93,4 +104,4 @@ class Pago(db.Model):
     FECHA_PAGO = db.Column(db.DateTime, default=datetime.utcnow)
     ID_ESTADO_PAGO = db.Column(db.Integer, db.ForeignKey('ESTADO_PAGO.ID_ESTADO_PAGO'), default=1)
     
-    
+
