@@ -55,7 +55,7 @@ $(document).ready(function() {
       const cardBody = $('<div class="card-body"></div>');
       const title = $(`<h5 class="card-title">${accesorio.nombre}</h5>`);
       const description = $(`<p class="card-text">${accesorio.descripcion}</p>`);
-      const button = $(`<a href="./viws/accesorio.html?id=${accesorio.id}" class="btn btn-primary">Revisar</a>`);
+      const button = $(`<a href="./views/accesorio.html?id=${accesorio.id}" class="btn btn-primary">Revisar</a>`);
 
       cardBody.append(title, description, button);
       card.append(image, cardBody);
