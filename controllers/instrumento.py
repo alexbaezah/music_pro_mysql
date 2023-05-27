@@ -23,3 +23,22 @@ def get_instrumentos():
 
     return jsonify(instrumentos_list), 200, {'Content-Type': 'application/json; charset=utf-8'}
     
+
+@instrumentos_blueprint.route('/instrumentos/<int:instrumento_id>', methods=['GET'])
+def get_instrumento(instrumento_id):
+    instrumento = Instrumento.query.get(instrumento_id)
+
+    if not instrumento:
+        return jsonify({'error': 'Instrumento no encontrado'}), 404
+
+    instrumento_dict = {
+        'id': instrumento.ID_INSTR,
+        'nombre': instrumento.NOMBRE_INSTR,
+        'descripcion': instrumento.DESCRIPCION_INSTR,
+        'precio': instrumento.PRECIO_INSTR,
+        'stock': instrumento.STOCK_INSTR,
+        'id_subtipo': instrumento.ID_SUBTIPO,
+        'foto': instrumento.FOTO
+    }
+
+    return jsonify(instrumento_dict), 200, {'Content-Type': 'application/json; charset=utf-8'}

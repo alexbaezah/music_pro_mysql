@@ -1,0 +1,29 @@
+[33mcommit 0c24c964aa5b4d9d94f5e1d4f400b5ca7d50e913[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: alexbaezah <alcebaezah@gmail.com>
+Date:   Sat May 27 01:11:35 2023 -0400
+
+    se realiza vista para instrumentos
+
+[33mcommit 406a7e6b328ec1437a71f1055bf9f002fc4d05ab[m
+Author: alexbaezah <alcebaezah@gmail.com>
+Date:   Fri May 26 14:45:28 2023 -0400
+
+    ahora el create de webpay toma como argumento el pago
+
+[33mcommit 69c4b37e4ec10ec77eab0a0fde95bd09dbc6c041[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: alexbaezah <alcebaezah@gmail.com>
+Date:   Fri May 26 00:37:38 2023 -0400
+
+    hecho el create para transacción con webpay, falta el método commit de webpay
+
+[33mcommit 9bf1801d05495e72138dbc565eca7745f0a0da90[m
+Author: alexbaezah <alcebaezah@gmail.com>
+Date:   Thu May 25 02:37:01 2023 -0400
+
+    intentando agregar el webpay
+
+[33mcommit ade2f4e631e50694d638024466859142a4f71f75[m
+Author: alexbaezah <alcebaezah@gmail.com>
+Date:   Wed May 24 17:21:58 2023 -0400
+
+    hecho el get para instrumentos
