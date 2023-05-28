@@ -1,83 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Formulario de Cliente</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./cliente.js"></script>
-</head>
-<body>
-    <form id="registro-form">
-        <div class="form-group col-md-2"></div> 
-    
-        <div class="form-group col-md-10">
-            <!--Crear Usuario-->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCorreo">Correo</label>
-                    <input type="email" class="form-control" id="inputCorreo">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword">Contraseña</label>
-                    <input type="password" class="form-control" id="inputPassword4">
-                </div>
+    <title>Formulario de Cliente</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <script src="./cliente.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">MusicPro</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Productos
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./instrumentos.html">Instrumentos</a></li>
+                    <li><a class="dropdown-item" href="./accesorios.html">Accesorios</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Registro/Login
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./registro.html">Registrarse</a></li>
+                    <li><a class="dropdown-item" href="./login.html">Login</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <span id="username-placeholder">Usuario</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!-- Aquí se mostrarán opciones adicionales para usuarios autenticados -->
+                    <!-- Puedes agregar más elementos <li> según tus necesidades -->
+                  </ul>
+                </li>
+                
+              </ul>
+             
             </div>
-            <!--RUT-->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputRut">Rut</label>
-                    <input type="text" class="form-control" id="inputRut" placeholder="">
-                </div>
-                <div class="form-group col-md-1">
-                    <label for="inputDv">Dv</label>
-                    <input type="text" class="form-control" id="inputDv" placeholder="">
-                </div>
-            </div>
-            <!--Nombres-->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPrimerNombre">Primer Nombre</label>
-                    <input type="text" class="form-control" id="inputPrimerNombre" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputSegundoNombre">Segundo Nombre</label>
-                    <input type="text" class="form-control" id="inputSegundoNombre" placeholder="">
-                </div>
-            </div>
-            <!--Apellidos-->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPrimerApellido">Primer Apellido</label>
-                    <input type="text" class="form-control" id="inputPrimerApellido" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputSegundoApellido">Segundo Apellido</label>
-                    <input type="text" class="form-control" id="inputSegundoApellido" placeholder="">
-                </div>
-            </div>
-            <!--Dirección-->
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputDireccion">Dirección</label>
-                    <input type="text" class="form-control" id="inputDireccion">
-                </div>
-
-
-          
-            <!--Botones-->
-            <div class="form-group row mb-0 pt-2">
-                <div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-                <div class="col-2 col-sm-2 d-flex justify-content-start">
-                    <button id="btn_limpiar" class="btn btn-success">Limpiar</button>
-                </div>
-            </div>
-        </div>
-    </form>
-    
-</body>
+          </div>
+        </nav>
+  
+  
+      <form id="registro-form">
+          <div class="form-group col-md-2"></div> 
+      
+          <div class="form-group col-md-10">
+              <!--Crear Usuario-->
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputCorreo">Correo</label>
+                      <input type="email" class="form-control" id="inputCorreo">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="inputPassword">Contraseña</label>
+                      <input type="password" class="form-control" id="inputPassword4">
+                  </div>
+              </div>
+              <!--RUT-->
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputRut">Rut</label>
+                      <input type="text" class="form-control" id="inputRut" placeholder="">
+                  </div>
+                  <div class="form-group col-md-1">
+                      <label for="inputDv">Dv</label>
+                      <input type="text" class="form-control" id="inputDv" placeholder="">
+                  </div>
+              </div>
+              <!--Nombres-->
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputPrimerNombre">Primer Nombre</label>
+                      <input type="text" class="form-control" id="inputPrimerNombre" placeholder="">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="inputSegundoNombre">Segundo Nombre</label>
+                      <input type="text" class="form-control" id="inputSegundoNombre" placeholder="">
+                  </div>
+              </div>
+              <!--Apellidos-->
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputPrimerApellido">Primer Apellido</label>
+                      <input type="text" class="form-control" id="inputPrimerApellido" placeholder="">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="inputSegundoApellido">Segundo Apellido</label>
+                      <input type="text" class="form-control" id="inputSegundoApellido" placeholder="">
+                  </div>
+              </div>
+              <!--Dirección-->
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputDireccion">Dirección</label>
+                      <input type="text" class="form-control" id="inputDireccion">
+                  </div>
+                       <!--Botones-->
+              <div class="form-group  pt-4">
+                  <div>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+                  <div >
+                      <button id="btn_limpiar" class="btn btn-success">Limpiar</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+      
+  </body>
 </html>
+
