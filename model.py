@@ -38,15 +38,12 @@ class Cliente(db.Model):
     NOM_CLI = db.Column(db.String(80), nullable=False)
     APAT_CLI = db.Column(db.String(50), nullable=False)
     AMAT_CLI = db.Column(db.String(50), nullable=False)
-    FECHA_NAC_CLI = db.Column(db.Date, nullable=False)
     DIRECCION_CLI = db.Column(db.String(100), nullable=False)
     EMAIL_CLI = db.Column(db.String(100), nullable=False)
-    CONTRASEÑA = db.Column(db.String(6), nullable=False)
-    ID_ROL = db.Column(db.Integer, db.ForeignKey('ROL.ID_ROL'), default=2)
-    ID_COM = db.Column(db.Integer, db.ForeignKey('COMUNA.ID_COMUNA'))
-    ID_CIUDAD = db.Column(db.Integer, db.ForeignKey('CIUDAD.ID_CIUDAD'))
-    ID_REGION = db.Column(db.Integer, db.ForeignKey('REGION.ID_REGION'))
-
+    CONTRASENIA = db.Column(db.String(6), nullable=False)
+    
+    
+    
 class Instrumento(db.Model):
     __tablename__ = 'INSTRUMENTO'
     ID_INSTR = db.Column(db.Integer, primary_key=True)

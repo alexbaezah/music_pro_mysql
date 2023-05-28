@@ -1,47 +1,72 @@
-from flask import request, jsonify
-from app import app, db
-from model import Cliente, Region, Comuna, Ciudad
+from flask import Flask, Blueprint, request, jsonify
+from app import db
+from model import Cliente
 
-@app.route('/registro', methods=['POST'])
-def registro_usuario():
-    # Obtener los datos del formulario de registro
-    rut = request.form['rut']
-    dv = request.form['dv']
-    nombre = request.form['nombre']
-    apaterno = request.form['apaterno']
-    amaterno = request.form['amaterno']
-    fecha_nacimiento = request.form['fecha_nacimiento']
-    direccion = request.form['direccion']
-    email = request.form['email']
-    contraseña = request.form['contraseña']
-    region_nombre = request.form['region']
-    comuna_nombre = request.form['comuna']
-    ciudad_nombre = request.form['ciudad']
 
-    # Obtener los IDs correspondientes a las regiones, comunas y ciudades seleccionadas
-    region = Region.query.filter_by(nombre=region_nombre).first()
-    comuna = Comuna.query.filter_by(nombre=comuna_nombre).first()
-    ciudad = Ciudad.query.filter_by(nombre=ciudad_nombre).first()
 
-    # Crear una instancia del modelo Cliente con los datos recibidos
+app = Flask(__name__)
+
+
+cliente_bp = Blueprint('clientes', __name__)
+
+
+@cliente_bp.route('/cliente', methods=['POST'])
+def create_cliente():
+    data = request.get_json()
+    
+    rut = data['rut']
+    dv = data['dv']
+    nombre = data['nombre']
+    apaterno = data['apaterno']
+    amaterno = data['amaterno']
+    direccion = data['direccion']
+    email = data['email']
+    contrasenia = data['contrasenia']
+    
     cliente = Cliente(
         RUT_CLI=rut,
         DV_CLI=dv,
         NOM_CLI=nombre,
         APAT_CLI=apaterno,
         AMAT_CLI=amaterno,
-        FECHA_NAC_CLI=fecha_nacimiento,
         DIRECCION_CLI=direccion,
         EMAIL_CLI=email,
-        CONTRASEÑA=contraseña,
-        ID_ROL=2,
-        ID_COM=comuna.id if comuna else None,
-        ID_CIUDAD=ciudad.id if ciudad else None,
-        ID_REGION=region.id if region else None
+        CONTRASENIA=contrasenia
+        
     )
-
-    # Guardar el nuevo cliente en la base de datos
+    
     db.session.add(cliente)
     db.session.commit()
 
-    return jsonify({'message': 'Usuario creado exitosamente'})
+    return jsonify({'message': 'Cliente creado exitosamente'}), 201
+
+
+@cliente_bp.route('/clientes', methods=['GET'])
+def obtener_clientes():
+    # Obtener todos los clientes de la base de datos
+    clientes = Cliente.query.all()
+
+    # Crear una lista para almacenar los datos de los clientes
+    lista_clientes = []
+
+    # Iterar sobre los clientes y agregar sus datos a la lista
+    for cliente in clientes:
+        
+        
+
+        cliente_data = {
+            'rut': cliente.RUT_CLI,
+            'dv': cliente.DV_CLI,
+            'nombre': cliente.NOM_CLI,
+            'apaterno': cliente.APAT_CLI,
+            'amaterno': cliente.AMAT_CLI,
+            'direccion': cliente.DIRECCION_CLI,
+            'email': cliente.EMAIL_CLI,
+            'contrasenia': cliente.CONTRASENIA
+            
+        }
+        lista_clientes.append(cliente_data)
+
+    return jsonify(lista_clientes)
+
+

@@ -22,6 +22,9 @@ from index import index_blueprint
 from controllers.region import regiones_blueprint
 from controllers.comuna import comunas_blueprint
 from controllers.ciudad import ciudades_blueprint
+from controllers.cliente import cliente_bp
+
+
 
 
 
@@ -33,6 +36,12 @@ app.register_blueprint(index_blueprint)
 app.register_blueprint(regiones_blueprint)
 app.register_blueprint(comunas_blueprint)
 app.register_blueprint(ciudades_blueprint)
+app.register_blueprint(cliente_bp)
+
+
+
+
+
 
 """@app.route('/')
 def index():
