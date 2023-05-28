@@ -69,4 +69,20 @@ def obtener_clientes():
 
     return jsonify(lista_clientes)
 
+@cliente_bp.route('/cliente/login', methods=['POST'])
+def login_cliente():
+    data = request.get_json()
+    
+    email = data['email']
+    contrasenia = data['contrasenia']
+    
+    # Verificar las credenciales del cliente en la base de datos
+    cliente = Cliente.query.filter_by(EMAIL_CLI=email, CONTRASENIA=contrasenia).first()
+    
+    if cliente:
+        # Las credenciales son válidas, el cliente está autenticado
+        return jsonify({'message': 'Inicio de sesión exitoso'})
+    else:
+        # Las credenciales son inválidas, el inicio de sesión falló
+        return jsonify({'message': 'Credenciales inválidas'}), 401
 
