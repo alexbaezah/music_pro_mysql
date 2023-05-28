@@ -71,9 +71,11 @@ $(document).ready(function() {
       contentType: 'application/json',
       success: function(response) {
         // Mostrar mensaje de éxito
+        localStorage.setItem('userEmail', email);
         alert(response.message);
         // Redirigir al usuario al index.html
         window.location.href = '../index.html';
+        
       },
       error: function(error) {
         console.log('Error:', error);
